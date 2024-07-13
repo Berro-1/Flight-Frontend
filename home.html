@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Airlines</title>
+    <link rel="stylesheet" href="/styles/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="overlay"></div>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/CHRIS AIRLINES.svg" alt="Chris Airlines Logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Book a Trip</a></li>
+                    <li><a href="#">Book a Taxi</a></li>
+                    <li><a href="#">Book a Hotel</a></li>
+                    <li><a href="#" class="login"><i class="fas fa-user"></i> Log in</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="signin-signup-container" id="signin-container">
+        <img src="assets/family f.jpg" alt="family flight photo" class="form-image">
+        <h2 class="form-title">Continue to your account</h2>
+        <span class="form-text">Get better deals, save your details for easy booking, and see all your trips in one place.</span>
+        <form id="signInForm">
+            <input type="text" id="signin-username" name="username" placeholder="username" required>
+            <input type="password" id="signin-password" name="password" placeholder="password" required>
+            <button type="submit" id="submit" class="form-btn">Submit</button>
+            <span id="signup-link" class="form-link">Don't have an account? <a href="#">Signup</a></span>
+            <span id="forget-link" class="form-link">Forgot Password? <a href="#">Reset Password</a></span>
+        </form>
+    </div>
+    <div class="signin-signup-container" id="signup-container">
+        <img src="assets/family f.jpg" alt="family flight photo" class="form-image">
+        <form id="form">
+            <h2 class="form-title">Create a new account</h2>
+            <div class="input-control">
+                <input type="text" id="username" name="username" placeholder="Enter your Username" required>
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <input type="email" id="email" name="email" placeholder="e.g. your@email.com" required>
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <input type="password" id="password2" name="confirmPassword" placeholder="Confirm your Password" required>
+                <div class="error"></div>
+            </div>
+            <button type="submit" id="register" class="form-btn">Register</button>
+            <span id="signin-link" class="form-link">Already have an account? <a href="#">Login</a></span>
+        </form>
+    </div>
+    <section class="background-image">
+        <div class="center-block">
+            <div class="search-box">
+                <div class="search-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" placeholder="Search destinations">
+                </div>
+                <div class="search-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <input type="text" placeholder="April 05 - May 10">
+                </div>
+                <div class="search-item">
+                    <i class="fas fa-flag"></i>
+                    <input type="text" placeholder="All tour">
+                </div>
+                <button class="search-button">Search</button>
+            </div>
+        </div>
+    </section>
+    <section class="promotion-banner" id="promotionBanner">
+        <img src="assets/Banner Promotion.svg" alt="Promotion Banner">
+        <button class="close-btn" onclick="closeBanner()">×</button>
+    </section>
+    <section class="Trending-svg">
+        <img src="assets/Trending destinations.svg" alt="Additional SVG">
+    </section>
+    <section class="Trending-below-svg">
+        <img src="assets/Frame 82.png" alt="Additional SVG">
+    </section>
+    <section class="savedes">
+        <img src="assets/savedes.svg" alt="Additional SVG">
+    </section>
+    <section class="savedes-below">
+        <img src="assets/Frame 113.svg" alt="Additional SVG">
+    </section>
+    <section class="footer">
+        <img src="assets/footer.svg" alt="Additional SVG">
+    </section>
+    <div>
+        <button class="chatbot-toggler">
+            <span class="material-symbols-rounded">C-AI</span>
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="chatbot">
+            <header>
+                <h2>Chatbot</h2>
+                <span class="close-btn material-symbols-outlined">close</span>
+            </header>
+            <ul class="chatbox">
+                <li class="chat incoming">
+                    <span class="material-symbols-outlined">AI</span>
+                    <p>Hi there 👋<br>How can I help you today?</p>
+                </li>
+            </ul>
+            <div class="chat-input">
+                <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+                <span id="send-btn" class="material-symbols-rounded">send</span>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/AI-bot.js"></script>
+    <script src="scripts/login-signup.js"></script>
+</body>
+</html>
