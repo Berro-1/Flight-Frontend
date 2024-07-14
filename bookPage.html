@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/bookPage.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/CHRIS AIRLINES.svg" alt="Chris Airlines Logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Book a Trip</a></li>
+                    <li><a href="#">Book a Taxi</a></li>
+                    <li><a href="#">Book a Hotel</a></li>
+                    <li><a href="#" class="login"><i class="fas fa-user"></i> Log in</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="book-container">
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="openTab('flight')">Flight</button>
+                <button class="tab-button" onclick="openTab('hotel')">Hotel</button>
+                <button class="tab-button" onclick="openTab('taxi')">Taxi</button>
+            </div>
+            <div id="flight" class="tab-content active">
+                <h2>Flight Information</h2>
+                <p>Details about flights.</p>
+            </div>
+            <div id="hotel" class="tab-content">
+                <h2>Hotel Information</h2>
+                <p>Details about hotels.</p>
+            </div>
+            <div id="taxi" class="tab-content">
+                <h2>Taxi Information</h2>
+                <p>Details about taxis.</p>
+            </div>
+        </div>
+    
+
+    </section>
+</body>
+</html>
