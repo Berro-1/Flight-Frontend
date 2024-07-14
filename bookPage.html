@@ -32,28 +32,47 @@
     <div class="book-container">
         <div class="tabs">
             <div class="tab-buttons">
-                <button class="tab-button" id="book-flight" onclick="showTab(event, 'flight')"><i class="fas fa-plane"></i> Flight</button>
-                <button class="tab-button" id="book-hotel"onclick="showTab(event, 'hotel')"><i class="fas fa-hotel"></i> Hotel</button>
+                <button class="tab-button active" id="book-flight" onclick="showTab(event, 'flight')"><i class="fas fa-plane"></i> Flight</button>
+                <button class="tab-button" id="book-hotel" onclick="showTab(event, 'hotel')"><i class="fas fa-hotel"></i> Hotel</button>
                 <button class="tab-button" id="book-taxi" onclick="showTab(event, 'taxi')"><i class="fas fa-taxi"></i> Taxi</button>
             </div>
             <div id="flight" class="tab-content">
                 <h2>Flight Information</h2>
                 <div class="input-container">
                     <i class="fas fa-plane-departure"></i>
-                    <input type="text" placeholder="FROM">
-                    
+                    <select id="plane-from">
+                        <option value="">Select Departure</option>
+                        <option value="JFK">JFK</option>
+                        <option value="LAX">LAX</option>
+                        <option value="ORD">ORD</option>
+                    </select>
                 </div>
                 <div class="input-container">
                     <i class="fas fa-plane-arrival"></i>
-                    <input type="text" placeholder="TO">
+                    <select id="plane-to">
+                        <option value="">Select Arrival</option>
+                        <option value="LHR">LHR</option>
+                        <option value="CDG">CDG</option>
+                        <option value="HND">HND</option>
+                    </select>
                 </div>
                 <div class="input-container">
                     <i class="fas fa-calendar-alt"></i>
-                    <input type="text" placeholder="DEPARTURE ON">
+                    <select id="plane-from-time">
+                        <option value="">Select Departure Date</option>
+                        <option value="2024-07-10">2024-07-10</option>
+                        <option value="2024-07-11">2024-07-11</option>
+                        <option value="2024-07-12">2024-07-12</option>
+                    </select>
                 </div>
                 <div class="input-container">
                     <i class="fas fa-calendar-alt"></i>
-                    <input type="text" placeholder="RETURN ON">
+                    <select id="plane-to-time">
+                        <option value="">Select Return Date</option>
+                        <option value="2024-07-20">2024-07-20</option>
+                        <option value="2024-07-21">2024-07-21</option>
+                        <option value="2024-07-22">2024-07-22</option>
+                    </select>
                 </div>
                 <button class="book-button">Book</button>
             </div>
@@ -61,19 +80,41 @@
                 <h2>Hotel Information</h2>
                 <div class="input-container">
                     <i class="fas fa-hotel"></i>
-                    <input type="text" placeholder="Name">
+                    <select>
+                        <option value="">Select Hotel Name</option>
+                        <option value="Hotel A">Hotel A</option>
+                        <option value="Hotel B">Hotel B</option>
+                        <option value="Hotel C">Hotel C</option>
+                    </select>
                 </div>
                 <div class="input-container">
                     <i class="fas fa-map-marker-alt"></i>
-                    <input type="text" placeholder="Location">
+                    <select>
+                        <option value="">Select Location</option>
+                        <option value="New York">New York</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Chicago">Chicago</option>
+                    </select>
                 </div>
                 <div class="input-container">
                     <i class="fas fa-bed"></i>
-                    <input type="text" placeholder="Rooms">
+                    <select>
+                        <option value="">Select Number of Rooms</option>
+                        <option value="1">1 Room</option>
+                        <option value="2">2 Rooms</option>
+                        <option value="3">3 Rooms</option>
+                    </select>
                 </div>
                 <div class="input-container">
                     <i class="fas fa-star"></i>
-                    <input type="text" placeholder="Stars">
+                    <select>
+                        <option value="">Select Star Rating</option>
+                        <option value="1">1 Star</option>
+                        <option value="2">2 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="5">5 Stars</option>
+                    </select>
                 </div>
                 <button class="book-button">Book</button>
             </div>
@@ -81,20 +122,27 @@
                 <h2>Taxi Information</h2>
                 <div class="input-container">
                     <i class="fas fa-map-marker-alt"></i>
-                    <input type="text" placeholder="Location">
+                    <select>
+                        <option value="">Select Pickup Location</option>
+                        <option value="Location A">Location A</option>
+                        <option value="Location B">Location B</option>
+                        <option value="Location C">Location C</option>
+                    </select>
                 </div>
                 <div class="input-container">
                     <i class="fas fa-location-arrow"></i>
-                    <input type="text" placeholder="FROM">
-                </div>
-                <div class="input-container">
-                    <i class="fas fa-location-arrow"></i>
-                    <input type="text" placeholder="TO">
+                    <select>
+                        <option value="">Select Drop-off Location</option>
+                        <option value="Location A">Location A</option>
+                        <option value="Location B">Location B</option>
+                        <option value="Location C">Location C</option>
+                    </select>
                 </div>
                 <button class="book-button">Book</button>
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="scripts/bookPage.js"></script>
 </body>
 </html>

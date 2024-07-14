@@ -46,23 +46,23 @@
     position: relative;
     display: flex;
     align-items: center;
+    padding: 10px;
     margin: 10px 0;
 }
 
-.input-container input {
+.input-container i {
+    margin-left: 10px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #007bff;
+}
+.input-container select {
     width: 100%;
-    padding: 10px 10px 10px 40px; /* Adjusted padding for icon space */
+    padding: 10px 10px 10px 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-.input-container i {
-    position: absolute;
-    left: 10px;
-    font-size: 20px;
-    color: #aaa;
 }
 
 .book-button {
