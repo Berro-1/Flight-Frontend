@@ -32,9 +32,9 @@
     <div class="book-container">
         <div class="tabs">
             <div class="tab-buttons">
-                <button class="tab-button" onclick="showTab(event, 'flight')"><i class="fas fa-plane"></i> Flight</button>
-                <button class="tab-button" onclick="showTab(event, 'hotel')"><i class="fas fa-hotel"></i> Hotel</button>
-                <button class="tab-button" onclick="showTab(event, 'taxi')"><i class="fas fa-taxi"></i> Taxi</button>
+                <button class="tab-button" id="book-flight" onclick="showTab(event, 'flight')"><i class="fas fa-plane"></i> Flight</button>
+                <button class="tab-button" id="book-hotel"onclick="showTab(event, 'hotel')"><i class="fas fa-hotel"></i> Hotel</button>
+                <button class="tab-button" id="book-taxi" onclick="showTab(event, 'taxi')"><i class="fas fa-taxi"></i> Taxi</button>
             </div>
             <div id="flight" class="tab-content">
                 <h2>Flight Information</h2>
@@ -95,5 +95,6 @@
             </div>
         </div>
     </div>
+    <script src="scripts/bookPage.js"></script>
 </body>
 </html>
