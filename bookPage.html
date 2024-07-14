@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/bookPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <title>Document</title>
 </head>
 <body>
@@ -27,28 +29,71 @@
             </nav>
         </div>
     </header>
-    <section class="book-container">
+    <div class="book-container">
         <div class="tabs">
             <div class="tab-buttons">
-                <button class="tab-button ">Flight</button>
-                <button class="tab-button" >Hotel</button>
-                <button class="tab-button" >Taxi</button>
+                <button class="tab-button" onclick="showTab(event, 'flight')"><i class="fas fa-plane"></i> Flight</button>
+                <button class="tab-button" onclick="showTab(event, 'hotel')"><i class="fas fa-hotel"></i> Hotel</button>
+                <button class="tab-button" onclick="showTab(event, 'taxi')"><i class="fas fa-taxi"></i> Taxi</button>
             </div>
-            <div id="flight" class="tab-content active">
+            <div id="flight" class="tab-content">
                 <h2>Flight Information</h2>
-                <p>Details about flights.</p>
+                <div class="input-container">
+                    <i class="fas fa-plane-departure"></i>
+                    <input type="text" placeholder="FROM">
+                    
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-plane-arrival"></i>
+                    <input type="text" placeholder="TO">
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-calendar-alt"></i>
+                    <input type="text" placeholder="DEPARTURE ON">
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-calendar-alt"></i>
+                    <input type="text" placeholder="RETURN ON">
+                </div>
+                <button class="book-button">Book</button>
             </div>
             <div id="hotel" class="tab-content">
                 <h2>Hotel Information</h2>
-                <p>Details about hotels.</p>
+                <div class="input-container">
+                    <i class="fas fa-hotel"></i>
+                    <input type="text" placeholder="Name">
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" placeholder="Location">
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-bed"></i>
+                    <input type="text" placeholder="Rooms">
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-star"></i>
+                    <input type="text" placeholder="Stars">
+                </div>
+                <button class="book-button">Book</button>
             </div>
             <div id="taxi" class="tab-content">
                 <h2>Taxi Information</h2>
-                <p>Details about taxis.</p>
+                <div class="input-container">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" placeholder="Location">
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-location-arrow"></i>
+                    <input type="text" placeholder="FROM">
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-location-arrow"></i>
+                    <input type="text" placeholder="TO">
+                </div>
+                <button class="book-button">Book</button>
             </div>
         </div>
-    
-
-    </section>
+    </div>
 </body>
 </html>

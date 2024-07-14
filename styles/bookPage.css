@@ -1,16 +1,4 @@
-/* body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: #f0f0f0;
-        } */
-.book-container{
+.book-container {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -26,12 +14,14 @@
     border-radius: 5px;
     background-color: #fff;
 }
+
 .tab-buttons {
     display: flex;
     width: 50%;
     justify-content: flex-start;
     background-color: #007bff;
 }
+
 .tab-buttons button {
     flex: 1;
     padding: 10px;
@@ -41,9 +31,53 @@
     cursor: pointer;
     font-size: 16px;
 }
+
 .tab-buttons button.active {
     background-color: #0056b3;
 }
+
 .tab-content {
     padding: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px 10px 10px 40px; /* Adjusted padding for icon space */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.input-container i {
+    position: absolute;
+    left: 10px;
+    font-size: 20px;
+    color: #aaa;
+}
+
+.book-button {
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    align-self: flex-start;
+}
+
+.book-button:hover {
+    background-color: #0056b3;
 }
