@@ -1,12 +1,14 @@
-/* General Styles */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
 
 header {
     background-color: white;
-    padding: 10px 0;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -18,7 +20,7 @@ header {
 }
 
 .logo img {
-    height: 5%; 
+    height: 50px;
 }
 
 .search-bar {
@@ -28,11 +30,10 @@ header {
 
 .search-bar input {
     width: 100%;
-    padding: 5px 10px;
-    border: 1px solid #ffffff;
-    border-radius: 20px; 
-    font-size: 14px;
-    background-color: #f8f8f8; 
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
 }
 
 nav ul {
@@ -48,48 +49,37 @@ nav a {
     color: rgba(0, 0, 0, 0.737);
     font-weight: bold;
     position: relative;
-    padding: 5px;
+    padding: 10px;
+    transition: color 0.3s ease;
 }
 
-nav a::after {
-    content: '';
-    display: block;
-    width: 0px;
-    height: 3px;
-    background: red;
-    transition: width .3s;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-}
-
-nav a:hover::after,
-nav a.active::after {
-    width: 100%;
+nav a:hover,
+nav a.active {
+    color: red;
 }
 
 nav .login {
     color: red;
     display: flex;
     align-items: center;
-    position: relative;
-    bottom: 20%;
+    position: relative; /* Enable relative positioning */
+    /* Adjust the value to move left */
+     top: -12px;
 }
 
 nav .login i {
     margin-right: 5px;
-    margin-bottom: 5px;
-    color: red; 
+  
 }
 
 .background-image {
-    background-image: url('/assets/Group\ 15.png'); 
-    background-size: cover; 
+    background-image: url('/assets/Group\ 15.png');
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 500px; 
-    margin-top: 20px; 
+    height: 500px;
     position: relative;
+    margin-top: 20px;
 }
 
 .center-block {
@@ -98,9 +88,9 @@ nav .login i {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -112,28 +102,30 @@ nav .login i {
 .search-item {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
+    flex-grow: 1;
 }
 
 .search-item input {
     border: none;
     outline: none;
+    width: 100%;
 }
 
 .search-item i {
-    color: #888; 
+    color: #888;
 }
 
 .search-button {
     padding: 10px 20px;
     border: none;
-    color: rgb(255, 255, 255);
+    color: white;
     border-radius: 5px;
-    background-color: #ccc;
+    background-color: red;
     cursor: pointer;
 }
 
@@ -142,7 +134,6 @@ nav .login i {
     position: relative;
     text-align: center;
     margin-top: 20px;
-    flex-grow: 1;
 }
 
 .promotion-banner img {
@@ -152,66 +143,38 @@ nav .login i {
 
 .close-btn {
     position: absolute;
-    color: #ffffff;
-    top: 15px; 
+    top: 15px;
     right: 20px;
     background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
+    color: white;
 }
 
 .Trending-svg {
-    text-align: center;
+    position : relative;
+    left :250px;
     margin-top: 20px;
+
 }
 
-.Trending-svg img {
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-}
 
-.Trending-below-svg {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.Trending-below-svg img {
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-}
-
-.savedes {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.savedes img {
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-}
-
-.savedes-below {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.savedes-below img {
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-}
-
+.Trending-below-svg,
+.savedes,
+.savedes-below,
 .footer {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
+.Trending-svg img,
+.Trending-below-svg img,
+.savedes img,
+.savedes-below img,
 .footer img {
-    width: auto;
+    width: 100%;
+    max-width: 1200px;
     height: auto;
 }
 
@@ -235,7 +198,7 @@ body.show-chatbot .chatbot-toggler {
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .chatbot-toggler span {
@@ -396,7 +359,7 @@ header h2 {
 
 .chat-input span {
     align-self: flex-end;
-    color: rgb(255, 255, 255);
+    color: #fff;
     background-color: red;
     border: 1px solid red;
     padding: 5px;
@@ -511,6 +474,7 @@ header h2 {
 }
 
 /* Sign-in/Sign-up Styles */
+
 .signin-signup-container {
     display: none; /* Hide by default, show with JS */
     flex-direction: column;
@@ -525,11 +489,13 @@ header h2 {
     padding: 20px;
     border-radius: 10px;
     z-index: 1000;
+    max-width: 400px;
+    width: 90%;
 }
 
 .form-image {
-    width: 100%;
-    height: auto;
+    width: 50%;
+    height: 50%;
     margin-bottom: 20px;
 }
 
@@ -542,6 +508,7 @@ header h2 {
     font-size: 1em;
     margin-bottom: 20px;
 }
+
 
 form {
     display: flex;

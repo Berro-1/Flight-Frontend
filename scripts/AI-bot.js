@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize variables
     let userMessage = null; // Variable to store the user's message
-       // At this line 18 ushould replace ur API key for OpenAI
+      
     const inputInitHeight = chatInput.scrollHeight; // Initial height of the input textarea
 
     // Function to create a chat list item
