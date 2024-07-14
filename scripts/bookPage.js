@@ -25,3 +25,4 @@ taxitBtn.addEventListener('click',()=>{
     hotel.style.display = 'none';
     taxi.style.display = 'flex';
 })
+
