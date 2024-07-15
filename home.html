@@ -20,7 +20,7 @@
             <nav>
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Book a Trip</a></li>
+                    <li><a href="">Book a Trip</a></li>
                     <li><a href="#">Book a Taxi</a></li>
                     <li><a href="#">Book a Hotel</a></li>
                     <li><a href="#" class="login"><i class="fas fa-user"></i> Log in</a></li>
@@ -68,17 +68,18 @@
         <div class="center-block">
             <div class="search-box">
                 <div class="search-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <input type="text" placeholder="Search destinations">
+                    <i class="fas fa-plane-departure"></i>
+                    <select id="plane-from">Search Departure
+                        <option value="">Select Departure</option>
+                    </select>
                 </div>
                 <div class="search-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <input type="text" placeholder="April 05 - May 10">
+                    <i class="fas fa-plane-arrival"></i>
+                    <select id="plane-to">Search Destinations
+                        <option value="">Select Departure</option>
+                    </select>
                 </div>
-                <div class="search-item">
-                    <i class="fas fa-flag"></i>
-                    <input type="text" placeholder="All tour">
-                </div>
+                
                 <button class="search-button">Search</button>
             </div>
         </div>
@@ -124,6 +125,8 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scripts/search.js"></script>
     <script src="scripts/AI-bot.js"></script>
     <script src="scripts/login-signup.js"></script>
 </body>

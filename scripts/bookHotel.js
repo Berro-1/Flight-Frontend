@@ -6,16 +6,14 @@ const getHotels = async() => {
     try {
         const { data } = await axios.post('http://localhost/Flight-Backend/api/hotel/getHotels.php');
         
-        // Assuming `data` is an array of hotel objects
+        
         data.forEach(hotel => {
             const optionName = document.createElement('option');
             const optionLocation = document.createElement('option');
             const optionRoom = document.createElement('option');
 
             optionName.innerText= hotel.hotel_name;
-
             optionLocation.innerText = hotel.location;
-
             optionRoom.innerText= hotel.available_rooms;
 
             hotelName.appendChild(optionName);
