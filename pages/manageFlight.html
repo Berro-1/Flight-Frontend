@@ -28,7 +28,7 @@
                         <h3 >Manage Airports</h3>
                     </div>
                     <div class="nav-option option3">
-                        <a href="manageFlight.html"><img src="/assets/manage2.png" class="nav-img" alt="manage-flights"></a>
+                        <a href="manageFlights.html"><img src="/assets/manage2.png" class="nav-img" alt="manage-flights"></a>
                         <h3>Manage Flights</h3>
                     </div>
                     <div class="nav-option option4">
@@ -52,27 +52,11 @@
         </nav>
 
         <main class="main">
-            <div class="box-container">
-                <div class="box box1">
-                    <div class="text">
-                        <h2 class="topic-heading">Total Users</h2>
-                        <h2 class="topic" id="totalUsers">0</h2>
-                    </div>
+            <div class="report-container">
+                <div class="report-header">
+                    <input type="text" style="width: 50%; border: 0cap;" placeholder="search for a flight , type thr flight number">
+                    <button class="view">View All</button>
                 </div>
-                <div class="box box2">
-                    <div class="text">
-                        <h2 class="topic-heading">Total Flights</h2>
-                        <h2 class="topic" id="totalFlights">0</h2>
-                    </div>
-                </div>
-                <div class="box box3">
-                    <div class="text">
-                        <h2 class="topic-heading">Total Bookings</h2>
-                        <h2 class="topic" id="totalBookings">0</h2>
-                    </div>
-                </div>
-            </div>
-
             <div class="report-container">
                 <div class="report-header">
                     <h1 class="recent-Bookings">Recent Bookings</h1>
@@ -84,15 +68,40 @@
                 <table class="report-table">
                     <thead>
                         <tr>
-                            <th>User name</th>
                             <th>Flight Number</th>
-                            <th>From</th>
-                            <th>Destination</th>
+                            <th>Departure Airport NAme</th>
+                            <th>Destination Airport Name</th>
+                            <th>Departure date & time</th>
+                            <th>Arrival DAte & time</th>
+                            <th>Flight Number</th>
+                            <th>Action</th>
+                            
+
                         </tr>
                     </thead>
                     <tbody>
                         
                     </tbody>
+
+                    <div id="editModal" style="display: none;">
+                        <div>
+                            <h2>Edit Flight</h2>
+                            <label for="flightNumber">Flight Number:</label>
+                            <input type="text" id="flightNumber">
+                            <label for="departureAirport">Departure Airport:</label>
+                            <input type="text" id="departureAirport">
+                            <label for="arrivalAirport">Arrival Airport:</label>
+                            <input type="text" id="arrivalAirport">
+                            <label for="departureDatetime">Departure Datetime:</label>
+                            <input type="datetime-local" id="departureDatetime">
+                            <label for="arrivalDatetime">Arrival Datetime:</label>
+                            <input type="datetime-local" id="arrivalDatetime">
+                            <label for="availableSeats">Available Seats:</label>
+                            <input type="number" id="availableSeats">
+                            <button id="saveBtn">Save</button>
+                            <button id="cancelBtn">Cancel</button>
+                        </div>
+                    </div>
                 </table>
             </div>
         </main>
@@ -104,7 +113,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     
-    <script src="/scripts/admin.js"></script>
+    <script src="/scripts/manageflight.js"></script>
 
 
 
