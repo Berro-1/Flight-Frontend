@@ -1,5 +1,6 @@
 const planeFrom = document.getElementById('plane-from')
 const planeTo = document.getElementById('plane-to')
+const search = document.getElementsByClassName('search-button')[0]
 
 const getFlights = async() => {
     try {
@@ -23,3 +24,7 @@ const getFlights = async() => {
 }
 
 getFlights();
+
+search.addEventListener('click', ()=>{
+    window.location.href = 'search-page.html'
+})
