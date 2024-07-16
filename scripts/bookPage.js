@@ -8,6 +8,9 @@ const planeFrom = document.getElementById('plane-from')
 const planeTo = document.getElementById('plane-to')
 const planeFromTime = document.getElementById('plane-from-time')
 const planeToTime= document.getElementById('plane-to-time')
+const hotel_name= document.getElementById('hotel-name')
+const hotel_location= document.getElementById('hotel-location')
+const hotel_rooms= document.getElementById('hotel-room')
 
 
 flightBtn.addEventListener('click',()=>{
@@ -53,3 +56,29 @@ const getFlights = async() => {
     }
 }
 getFlights()
+
+
+const getHotels = async() => {
+    try {
+        const { data } = await axios.post('http://localhost/Flight-Backend/api/hotel/getHotels.php')
+        
+        console.log({data})
+        data.forEach(hotel => {
+            const name = document.createElement('option')
+            const location = document.createElement('option')
+            const rooms = document.createElement('option')
+            
+            name.innerText= hotel.hotel_name
+            location.innerText = hotel.location
+            rooms.innerText = hotel.available_rooms
+
+            hotel_name.appendChild(name)
+            hotel_location.appendChild(location)
+            hotel_rooms.appendChild(rooms)
+        });
+    } catch (error) {
+        console.error('Error fetching hotels:', error)
+    }
+}
+getHotels()
+
