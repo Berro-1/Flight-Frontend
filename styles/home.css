@@ -154,23 +154,74 @@ nav .login i {
     left: 250px;
     margin-top: 20px;
 }
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     margin-top: 50px;
+     
+}
 
-.Trending-below-svg,
-.savedes,
-.savedes-below,
-.footer {
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 80%;
+    gap: 10px;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 200px;
     text-align: center;
-    margin-top: 20px;
+    cursor: pointer;
+}
+
+.carousel-item img {
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+}
+
+.carousel-item p {
+    margin-top: 10px;
+}
+
+.arrow {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.arrow.left {
+    margin-right: 20px;
+}
+
+.arrow.right {
+    margin-left: 20px;
+}
+.footer {
+    margin-top: 30px;
+    width: 100%; /* Ensure the footer spans the entire width */
+    text-align: center; /* Center the content within the footer */
+    margin: 0;
+    padding: 0;
 }
 
 .Trending-svg img,
 .Trending-below-svg img,
 .savedes img,
-.savedes-below img,
-.footer img {
+.savedes-below img {
     width: 100%;
     max-width: 1200px;
     height: auto;
+}
+.footer img {
+    width: 100%; /* Make the image take up the full width of the footer */
+    height: 400; /* Maintain the image aspect ratio */
+    display: block; /* Remove any extra space below the image */
 }
 
 /* Chatbot CSS */
