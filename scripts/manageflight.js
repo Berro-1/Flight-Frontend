@@ -1,8 +1,30 @@
-// Fetch bookings from the API
-async function fetchBookings() {
+let airports = []; 
+async function fetchFlights() {
     try {
         const response = await fetch('http://localhost/fullstack/Flight-Backend/api/flight/getAllFlight.php');
+        if (!response.ok) {
+            throw new Error('Failed to fetch flights');
+        }
         const data = await response.json();
+        console.log('flights:', data); 
+        
+        data.forEach(flight => {
+            //if the array contain arrival
+            if (!airports.find(airport => airport.id === flight.departure_airportid)) {
+                airports.push({ id: flight.departure_airportid, name: flight.departure_airport });
+            }
+        
+            //if the array contain arrival
+            if (!airports.find(airport => airport.id === flight.arrival_airportid)) {
+                airports.push({ id: flight.arrival_airportid, name: flight.arrival_airport });
+            }
+        });
+        
+       
+        console.log(airports)
+
+        
+
         return data;
     } catch (error) {
         console.error('Error fetching flights:', error);
@@ -10,93 +32,187 @@ async function fetchBookings() {
     }
 }
 
-function fill(data) {
+function fillTable(data) {
     const tableBody = document.querySelector('.report-table tbody');
-    tableBody.innerHTML = ''; // Clear existing rows
+    //tableBody.innerHTML = '';
 
     data.forEach(flight => {
+        console.log(flight);
+        console.log('Flight ID:', flight.flight_id);
         const row = document.createElement('tr');
+        row.setAttribute('data-flight-id', flight.flight_id); 
+
         row.innerHTML = `
-            <td>${flight.flight_number}</td>
-            <td>${flight.departure_airport}</td>
-            <td>${flight.arrival_airport}</td>
-            <td>${flight.departure_datetime}</td>
-            <td>${flight.arrival_datetime}</td>
-            <td>${flight.available_seats}</td>
-            <td>
-                <button class="update-btn" onclick="updateFlight(this)">Update</button>
-                <button onclick="deleteFlight('${flight.flight_number}', this)">Delete</button>
+        <td class="flight-number">${flight.flight_number}</td>
+        <td class="departure">${flight.departure_airport}</td>
+        <td class="arrival">${flight.arrival_airport}</td>
+        <td class="departure-datetime">${flight.departure_datetime}</td>
+        <td class="arrival-datetime">${flight.arrival_datetime}</td>
+        <td class="available-seats">${flight.available_seats}</td>
+            <td class="action-cell">
+                <button class="update-btn" onclick="enableEditing(this)">Update</button>
+                <button class="delete-btn" onclick="deleteFlight('${flight.flight_number}', this)">Delete</button>
                 <button class="save-btn" style="display: none;" onclick="saveFlight(this)">Save</button>
             </td>
         `;
+
         tableBody.appendChild(row);
     });
 }
 
-function updateFlight(button) {
-    const row = button.closest('tr'); // Get the row of the flight
-    const cells = row.querySelectorAll('td');
 
-    // Make cells editable
-    cells.forEach(cell => {
-        cell.contentEditable = 'true';
-    });
+async function enableEditing(button) {
+    const row = button.closest('tr');
+    const departureCell = row.querySelector('.departure');
+    const arrivalCell = row.querySelector('.arrival');
+    const saveButton = row.querySelector('.save-btn');
+    const deleteButton = row.querySelector('.delete-btn');
 
-    // Hide the update button and show the save button
-    button.style.display = 'none';
-    row.querySelector('.save-btn').style.display = 'inline-block';
-}
-
-async function saveFlight(button) {
-    const row = button.closest('tr'); // Get the row of the flight
-
-    const updatedFlight = {
-        flight_number: row.children[0].textContent.trim(),
-        departure_airport: row.children[1].textContent.trim(),
-        arrival_airport: row.children[2].textContent.trim(),
-        departure_datetime: row.children[3].textContent.trim(),
-        arrival_datetime: row.children[4].textContent.trim(),
-        available_seats: row.children[5].textContent.trim(),
-    };
+    const actionCell = row.querySelector('.action-cell'); 
 
     
-    if (!updatedFlight.flight_number || !updatedFlight.departure_airport || 
-        !updatedFlight.arrival_airport || !updatedFlight.departure_datetime || 
-        !updatedFlight.arrival_datetime || !updatedFlight.available_seats) {
-        
-        alert('Please fill in all fields correctly.');
-        return;
-    }
+    const departureSelect = document.createElement('select');
+    departureSelect.classList.add('departure-airport');
+    airports.forEach(airport => {
+        const option = document.createElement('option');
+        option.value = airport.id;
+        option.textContent = airport.name;
+        departureSelect.appendChild(option);
+    });
+    departureCell.innerHTML = '';
+    departureCell.appendChild(departureSelect);
+
+
+    const arrivalSelect = document.createElement('select');
+    arrivalSelect.classList.add('arrival-airport');
+    airports.forEach(airport => {
+        const option = document.createElement('option');
+        option.value = airport.id;
+        option.textContent = airport.name;
+        arrivalSelect.appendChild(option);
+    });
+    arrivalCell.innerHTML = '';
+    arrivalCell.appendChild(arrivalSelect);
+    
+    row.querySelectorAll('td').forEach(cell => {
+        if (cell !== departureCell && cell !== arrivalCell && cell !== actionCell) {
+            cell.contentEditable = 'true';
+        } else {
+            cell.contentEditable = 'false'; 
+        }
+    });
+
+    button.style.display = 'none'; 
+    deleteButton.style.display = 'none';
+    saveButton.style.display = 'inline-block';
+}
+
+async function updateFlight(updateFlightData) {
     try {
         const response = await fetch('http://localhost/fullstack/Flight-Backend/api/flight/updateFlight.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(updatedFlight)
+            body: JSON.stringify(updateFlightData)
         });
-        
+
         if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Error response:', errorText);
             throw new Error('Failed to update flight');
         }
 
-        console.log('Flight updated successfully:', updatedFlight);
-
-        // Disable editing
-        Array.from(row.children).forEach(cell => cell.contentEditable = 'false');
-
-        // Hide the save button and show the update button
-        button.style.display = 'none';
-        row.querySelector('.update-btn').style.display = 'inline-block';
-
+        const result = await response.json();
+        console.log('Update successful:', result);
+        return result; 
     } catch (error) {
-        console.error('Error saving flight:', error);
+        console.error('Error during flight update:', error);
     }
 }
 
 
-// Event listener for page load
+function isValidDateTime(dateTime) {
+    if (dateTime.length !== 19) return false; 
+    if (dateTime[10] !== ' ') return false; 
+    return true; 
+}
+
+
+
+
+async function saveFlight(button) {
+    const row = button.closest('tr');
+    const flightId = row.getAttribute('data-flight-id');
+
+    const updateFlightData = {
+        flight_id: flightId,
+        flight_number: row.querySelector('.flight-number').textContent.trim(),
+        departure_airport_id: row.querySelector('.departure-airport').value,
+        arrival_airport_id: row.querySelector('.arrival-airport').value,
+        departure_datetime: row.querySelector('.departure-datetime').textContent.trim(),
+        arrival_datetime: row.querySelector('.arrival-datetime').textContent.trim(),
+        available_seats: row.querySelector('.available-seats').textContent.trim()
+    };
+
+    const result = await updateFlight(updateFlightData);
+    console.log('Update flight data:', updateFlightData);
+    resetRow(row, updateFlightData);
+}
+
+function resetRow(row, updatedData) {
+    row.querySelector('.flight-number').textContent = updatedData.flight_number;
+    row.querySelector('.departure-datetime').textContent = updatedData.departure_datetime;
+    row.querySelector('.arrival-datetime').textContent = updatedData.arrival_datetime;
+    row.querySelector('.available-seats').textContent = updatedData.available_seats;
+
+    const departureAirportName = airports.find(airport => airport.id == updatedData.departure_airport_id)?.name;
+    const arrivalAirportName = airports.find(airport => airport.id == updatedData.arrival_airport_id)?.name;
+
+    row.querySelector('.departure').textContent = departureAirportName;
+    row.querySelector('.arrival').textContent = arrivalAirportName;
+
+    row.querySelectorAll('select').forEach(select => select.remove());
+
+    row.querySelectorAll('td').forEach(cell => {
+        cell.contentEditable = 'false';
+    });
+
+    row.querySelector('.save-btn').style.display = 'none'; 
+    row.querySelector('.update-btn').style.display = 'inline-block'; 
+    row.querySelector('.delete-btn').style.display = 'inline-block';  
+}
+
+
+async function deleteAirport(button) {
+    const row = button.closest('tr');
+    const airportId = row.getAttribute('data-airport-id');
+
+    const response = await fetch('http://localhost/fullstack/Flight-Backend/api/airport/deleteAirport.php', {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ airport_id: airportId })
+    });
+
+    if (response.ok) {
+        const result = await response.json();
+        console.log('Airport deleted:', result);
+        row.remove(); // Remove the row from the table
+    } else {
+        console.error('Error deleting airport:', response.statusText);
+    }
+}
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', async () => {
+
     const menuIcon = document.getElementById('menuicn');
     const navContainer = document.querySelector('.navcontainer');
     const mainContent = document.querySelector('.main');
@@ -105,13 +221,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         navContainer.classList.toggle('navclose');
         mainContent.classList.toggle('main-close');
     });
+    const flights = await fetchFlights();
+    fillTable(flights);
 
-    // Fetch bookings and update the table
-    const bookings = await fetchBookings();
-    fill(bookings);
-
-    // Example stats, replace with actual data
-    document.getElementById('totalUsers').textContent = '150'; 
-    document.getElementById('totalFlights').textContent = '78'; 
-    document.getElementById('totalBookings').textContent = '204'; 
+    
 });

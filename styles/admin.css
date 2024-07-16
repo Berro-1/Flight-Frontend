@@ -191,3 +191,123 @@
     color: #4b49ac;
     font-weight: 500;
   }
+
+  .update-btn{
+    background-color: #0d6efd;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 8px ;
+  }
+  .delete-btn{
+    background-color: #dc3545;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 8px ;
+  }
+ 
+
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#searchAirport {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  flex: 1;
+  margin-right: 10px;
+}
+
+#searchButton {
+  padding: 10px 20px;
+  background-color: #4b49ac;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+
+.airport-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#airportName {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  flex: 1;
+  margin-right: 10px; 
+}
+
+#addAirportButton {
+  padding: 10px 20px;
+  background-color: #28a745; 
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+#addAirportButton:hover {
+  background-color: #218838; 
+}
+
+.airport-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.airport-table th, .airport-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.airport-table th {
+  background-color: #f4f4f4;
+  color: #4b49ac;
+}
+
+.airport-table td {
+  color: #333;
+}
+
+.update-btn {
+  background-color: #0d6efd;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.save-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
