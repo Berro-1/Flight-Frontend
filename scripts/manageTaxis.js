@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function fetchTaxis() {
     try {
-        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/taxi/manageTaxi.php');
+        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/taxi/getalltaxi.php');
         const taxis = await response.json();
         fillTaxisTable(taxis);
     } catch (error) {
@@ -62,7 +62,7 @@ async function addTaxi() {
     };
 
     try {
-        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/taxi/manageTaxi.php', {
+        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/taxi/gettaxi.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -101,9 +101,10 @@ function enableEditing(button) {
     fromCell.innerHTML = `<input type="text" value="${fromCell.innerText}" />`;
     toCell.innerHTML = `<input type="text" value="${toCell.innerText}" />`;
 
-    button.style.display = 'none';
-    row.querySelector('.save-btn').style.display = 'inline-block';
+    button.style.display = 'none'; 
+    row.querySelector('.save-btn').style.display = 'inline-block'; 
 }
+
 
 async function saveTaxi(button) {
     const row = button.closest('tr');
@@ -119,7 +120,7 @@ async function saveTaxi(button) {
     };
 
     try {
-        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/taxi/manageTaxi.php', {
+        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/taxi/gettaxi.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -141,31 +142,36 @@ async function saveTaxi(button) {
 async function deleteTaxi(id, button) {
     if (confirm("Are you sure you want to delete this taxi?")) {
         try {
-            const response = await fetch('http://localhost/fullstack/Flight-Backend/api/taxi/manageTaxi.php', {
+            const response = await fetch('http://localhost/fullstack/Flight-Backend/api/taxi/gettaxi.php', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ action: 'delete', taxi_id: id }),
+                body: JSON.stringify({ action: 'delete', taxi_id: id })
             });
 
             const result = await response.json();
-            if (result.message) {
-                await fetchTaxis();
-            } else {
-                console.error('Error deleting taxi:', result.error);
+            if (!response.ok) {
+                throw new Error(result.error || 'Failed to delete taxi');
             }
+
+   
+            const row = button.closest('tr');
+            row.remove();
+            console.log("Taxi deleted successfully.");
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error deleting taxi:', error);
         }
     }
 }
+
+
 
 async function searchTaxis(event) {
     const searchTerm = event.target.value;
 
     try {
-        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/taxi/searchTaxis.php', {
+        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/taxi/searchTaxi.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -179,3 +185,4 @@ async function searchTaxis(event) {
         console.error('Error searching taxis:', error);
     }
 }
+
