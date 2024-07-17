@@ -31,58 +31,58 @@ taxitBtn.addEventListener('click',()=>{
     taxi.style.display = 'flex';
 })
 
-// const getFlights = async() => {
-//     try {
-//         const { data } = await axios.get('http://localhost/Flight-Backend/api/flight/getallFlight.php')
+const getFlights = async() => {
+    try {
+        const { data } = await axios.get('http://localhost/Flight-Backend/api/flight/getallFlight.php')
         
         
-//         data.forEach(flight => {
-//             const from = document.createElement('option')
-//             const to = document.createElement('option')
-//             const from_time = document.createElement('option')
-//             const to_time = document.createElement('option')
+        data.forEach(flight => {
+            const from = document.createElement('option')
+            const to = document.createElement('option')
+            const from_time = document.createElement('option')
+            const to_time = document.createElement('option')
             
-//             from.innerText= flight.departure_airport
-//             to.innerText = flight.arrival_airport
-//             from_time.innerText = flight.departure_datetime
-//             to_time.innerText = flight.arrival_datetime
+            from.innerText= flight.departure_airport
+            to.innerText = flight.arrival_airport
+            from_time.innerText = flight.departure_datetime
+            to_time.innerText = flight.arrival_datetime
 
 
-//             planeFrom.appendChild(from)
-//             planeTo.appendChild(to)
-//             planeFromTime.appendChild(from_time)
-//             planeToTime.appendChild(to_time)
-//         });
-//     } catch (error) {
-//         console.error('Error fetching hotels:', error)
-//     }
-// }
-// getFlights()
+            planeFrom.appendChild(from)
+            planeTo.appendChild(to)
+            planeFromTime.appendChild(from_time)
+            planeToTime.appendChild(to_time)
+        });
+    } catch (error) {
+        console.error('Error fetching hotels:', error)
+    }
+}
+getFlights()
 
 
-// const getHotels = async() => {
-//     try {
-//         const { data } = await axios.post('http://localhost/Flight-Backend/api/hotel/getHotels.php')
+const getHotels = async() => {
+    try {
+        const { data } = await axios.post('http://localhost/Flight-Backend/api/hotel/getHotels.php')
         
-//         console.log({data})
-//         data.forEach(hotel => {
-//             const name = document.createElement('option')
-//             const location = document.createElement('option')
-//             const rooms = document.createElement('option')
+        console.log({data})
+        data.forEach(hotel => {
+            const name = document.createElement('option')
+            const location = document.createElement('option')
+            const rooms = document.createElement('option')
             
-//             name.innerText= hotel.hotel_name
-//             location.innerText = hotel.location
-//             rooms.innerText = hotel.available_rooms
+            name.innerText= hotel.hotel_name
+            location.innerText = hotel.location
+            rooms.innerText = hotel.available_rooms
 
-//             hotel_name.appendChild(name)
-//             hotel_location.appendChild(location)
-//             hotel_rooms.appendChild(rooms)
-//         });
-//     } catch (error) {
-//         console.error('Error fetching hotels:', error)
-//     }
-// }
-// getHotels()
+            hotel_name.appendChild(name)
+            hotel_location.appendChild(location)
+            hotel_rooms.appendChild(rooms)
+        });
+    } catch (error) {
+        console.error('Error fetching hotels:', error)
+    }
+}
+getHotels()
 
 
 
