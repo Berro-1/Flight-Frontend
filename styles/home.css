@@ -641,6 +641,12 @@ input[type="email"] {
     font-size: 9px;
     height: 13px;
 }
+select {
+    width: 100%;
+    padding: 10px 10px 10px 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
 
 .close {
