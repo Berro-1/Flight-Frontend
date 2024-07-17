@@ -21,7 +21,7 @@ body{
 .btn-bar{
     background-color: #92A5B8;
     display: flex;
-    height: 80px;
+    height: 60px;
     align-items: center;
 }
 .tab-buttons {
@@ -107,7 +107,7 @@ h2{
 
 .input-container i {
     margin-right:20px;
-    font-size: 18px;
+    font-size: 14px;
     position: absolute;
     top: 50%;
     left: 30px;
@@ -116,7 +116,7 @@ h2{
 }
 .input-container select {
     width: 100%;
-    font-size: 18px;
+    font-size: 14px;
     padding: 10px 10px 10px 50px;
     border:#ccc solid 1px;
     border-radius: 5px;

@@ -45,31 +45,42 @@
                         <i class="fas fa-plane-departure"></i>
                         <select id="plane-from">
                             <option value="">Select Departure</option>
+                            <option value="JFK">JFK</option>
+                            <option value="LAX">LAX</option>
+                            <option value="ORD">ORD</option>
                         </select>
                     </div>
                     <div class="input-container">
                         <i class="fas fa-plane-arrival"></i>
                         <select id="plane-to">
                             <option value="">Select Arrival</option>
+                            <option value="LHR">LHR</option>
+                            <option value="CDG">CDG</option>
+                            <option value="HND">HND</option>
                         </select>
                     </div>
                     <div class="input-container">
                         <i class="fas fa-calendar-alt"></i>
                         <select id="plane-from-time">
                             <option value="">Select Departure Date</option>
+                            <option value="2024-07-10">2024-07-10</option>
+                            <option value="2024-07-11">2024-07-11</option>
+                            <option value="2024-07-12">2024-07-12</option>
                         </select>
                     </div>
                     <div class="input-container">
                         <i class="fas fa-calendar-alt"></i>
                         <select id="plane-to-time">
                             <option value="">Select Return Date</option>
+                            <option value="2024-07-20">2024-07-20</option>
+                            <option value="2024-07-21">2024-07-21</option>
+                            <option value="2024-07-22">2024-07-22</option>
                         </select>
                     </div>
                     <button class="book-button">Book</button>
                 </div>
                 <div class="right-side">
                     <img src="assets/flight.jpg" alt="">
-                    <div class="img-overlay"></div>
                 </div>
             </div>
             
@@ -88,18 +99,22 @@
                             <option value="">Select Location</option>
                         </select>
                     </div>
-                    <div class="input-container">
+                    <!-- <div class="input-container">
                         <i class="fas fa-bed"></i>
                         <select id="hotel-room">
                             <option value="">Select Number of Rooms</option>
                         </select>
-                    </div>                    
+                    </div> -->
+                    <!-- <div class="input-container">
+                        <i class="fas fa-star"></i>
+                        <select>
+                            <option value="">Select Star Rating</option>
+                        </select>
+                    </div> -->
                     <button class="book-button">Book</button>
                 </div>
                 <div class="right-side">
-                    
                     <img src="assets/hotel2.jpg" alt="">
-                    <div class="img-overlay"></div>
                 </div>
             </div>
             
@@ -108,28 +123,30 @@
                     <h2>Taxi Information</h2>
                     <div class="input-container">
                         <i class="fas fa-map-marker-alt"></i>
-                        <select id="taxi-from-location">
+                        <select>
                             <option value="">Select Pickup Location</option>
+                            <option value="Location A">Location A</option>
+                            <option value="Location B">Location B</option>
+                            <option value="Location C">Location C</option>
                         </select>
                     </div>
                     <div class="input-container">
                         <i class="fas fa-location-arrow"></i>
-                        <select id="taxi-to-location">
+                        <select>
                             <option value="">Select Drop-off Location</option>
+                            <option value="Location A">Location A</option>
+                            <option value="Location B">Location B</option>
+                            <option value="Location C">Location C</option>
                         </select>
                     </div>
                     <button class="book-button">Book</button>
                 </div>
                 <div class="right-side">
                     <img src="assets/taxi.jpg" alt="">
-                    <div class="img-overlay"></div>
                 </div>
             </div>
         </div>
     </div>
-    <section class="footer">
-        <img src="assets/footer.svg" alt="Additional SVG">
-    </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <script src="scripts/bookPage.js"></script>

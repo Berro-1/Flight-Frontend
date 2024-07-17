@@ -68,15 +68,15 @@ const getHotels = async() => {
         data.forEach(hotel => {
             const name = document.createElement('option')
             const location = document.createElement('option')
-            const rooms = document.createElement('option')
+            // const rooms = document.createElement('option')
             
             name.innerText= hotel.hotel_name
             location.innerText = hotel.location
-            rooms.innerText = hotel.available_rooms
+            // rooms.innerText = hotel.available_rooms
 
             hotel_name.appendChild(name)
             hotel_location.appendChild(location)
-            hotel_rooms.appendChild(rooms)
+            // hotel_rooms.appendChild(rooms)
         });
     } catch (error) {
         console.error('Error fetching hotels:', error)
