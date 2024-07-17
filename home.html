@@ -7,167 +7,251 @@
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+<style>
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 300; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+        animation: fadeIn 0.3s; /* Fade in animation */
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+        max-width: 200px;
+        text-align: center;
+        border-radius: 10px;
+        animation: slideIn 0.5s; /* Slide in animation */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateY(-20px); }
+        to { transform: translateY(0); }
+    }
+</style>
 <body>
-    <div id="overlay"></div>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="assets/CHRIS AIRLINES.svg" alt="Chris Airlines Logo">
+      <div class="main-content">
+        <div id="overlay"></div>
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <img src="assets/CHRIS AIRLINES.svg" alt="Chris Airlines Logo">
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a href="home.html" class="active">Home</a></li>
+                        <li><a href="#">Book a Flight</a></li>
+                        <li><a href="aboutus-airlines.html">About Us</a></li>
+                        <li><a href="game.html">Play a game</a></li>
+                        <li><a href="#" class="login"><i class="fas fa-user"></i> Log in</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search">
+        </header>
+        
+        <section class="home" style="display: flex; height: 100vh; background: linear-gradient(to top, #D2E2FB 30%, #86A8DB); position: relative; overflow: hidden;">
+            <img src="./assets/mountains.png" class="mount2" style="position: absolute; bottom: 0; right: 0; width: 50%; height: auto; z-index: 1; pointer-events: none;">
+            <img src="./assets/mountains2.png" class="mount1" style="position: absolute; bottom: 0; left: 0; width: 50%; height: auto; z-index: 1; pointer-events: none;">
+            <img src="./assets/clouds.png" class="bush2" style="position: absolute; bottom: 0; left: 10%; width: 30%; height: auto; pointer-events: none;">
+            <img src="./assets/clouds.png" class="bush1" style="position: absolute; bottom: 0; right: 10%; width: 30%; height: auto; pointer-events: none;">
+            <img src="./assets/clouds.png" class="leaf2" style="position: absolute; bottom: 0; left: 20%; width: 20%; height: auto; pointer-events: none;">
+            <img src="./assets/plane.png" class="leaf1" style="position: absolute; bottom: 70%; left: 100px; width: 20%; height: auto; z-index: 2; pointer-events: none;">
+            <img src="./assets/charbel.gif" class="popup" id="charbel" style="display: none; position: fixed; top: 10%; left: 35%; transform: translateX(-50%); z-index: 200; width: 175px; height: auto; transition: top 2s ease-in-out;">
+        </section>
+        
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>This is Charbel</p>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="home.html" class="active">Home</a></li>
-                    <li><a href="#">Book a Flight</a></li>
-                    <li><a href="aboutus-airlines.html">About Us</a></li>
-                    <li><a href="#" class="login"><i class="fas fa-user"></i> Log in</a></li>
+        </div>
+
+        <section class="background-image">
+            <div class="center-block">
+                <div class="search-box">
+                    <div class="search-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Search destinations">
+                    </div>
+                    <div class="search-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="text" placeholder="April 05 - May 10">
+                    </div>
+                    <div class="search-item">
+                        <i class="fas fa-flag"></i>
+                        <input type="text" placeholder="All tour">
+                    </div>
+                    <button class="search-button">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="signin-signup-container" id="signin-container">
+            <img src="./assets/family f.jpg" alt="family flight photo" class="form-image">
+            <h2 class="form-title">Continue to your account</h2>
+            <span class="form-text">Get better deals, save your details for easy booking, and see all your trips in one place. </span>
+            <form id="signInForm">
+                <div class="input-control">
+                    <input type="email" id="signin-email" name="email" placeholder="Enter your email" required>
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <input type="password" id="signin-password" name="password" placeholder="Enter your password" required>
+                    <div class="error"></div>
+                </div>
+                <button type="submit" id="submit" class="form-btn">Submit</button>
+                <span id="signup-link" class="form-link">Don't have an account? <a href="#">Signup</a></span>
+            </form>
+        </div>
+        
+        <div class="signin-signup-container" id="signup-container">
+            <img src="./assets/family f.jpg" alt="family flight photo" class="form-image">
+            <form id="form">
+                <h2 class="form-title">Create a new account</h2>
+                <div class="input-control">
+                    <input type="text" id="username" name="username" placeholder="Enter your Username" required>
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <input type="email" id="email" name="email" placeholder="e.g. your@email.com" required>
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <input type="password" id="password2" name="confirmPassword" placeholder="Confirm your Password" required>
+                    <div class="error"></div>
+                </div>
+                <button type="submit" id="register" class="form-btn">Register</button>
+                <span id="signin-link" class="form-link">Already have an account? <a href="#">Login</a></span>
+            </form>
+        </div>
+        
+        <section class="promotion-banner" id="promotionBanner">
+            <img src="./assets/Banner Promotion.svg" alt="Promotion Banner">
+            <button class="close-btn" onclick="closeBanner()">×</button>
+        </section>
+        
+        < <section class="Trending-svg">
+            <h2>Trending Destinations</h2>
+        </section>
+        <div class="carousel-container">
+            <button class="arrow left" onclick="moveLeft()">&#9664;</button>
+            <div class="carousel">
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=EEeu7-xJX_c';">
+                    <img src="./assets/paris12.jpg" alt="Paris">
+                    <p>Paris<br>+300 Tours</p>
+                </div>
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=rCx26B7u8Dc';">
+                    <img src="./assets/denemark.jpg" alt="Denmark">
+                    <p>Denmark<br>+100 Tours</p>
+                </div>
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=aLzKNCc2vwY';">
+                    <img src="./assets/china.jpg" alt="China">
+                    <p>China<br>+200 Tours</p>
+                </div>
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=vljvxeVXtGc';">
+                    <img src="./assets/97.jpg" alt="Dubai">
+                    <p>Dubai<br>+150 Tours</p>
+                </div>
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=b_9_3SAJvA8';">
+                    <img src="./assets/maldive.jpg.webp" alt="Maldives">
+                    <p>Maldives<br>+120 Tours</p>
+                </div>
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=dXcSF3qT-30';">
+                    <img src="./assets/TAIWAN-Best-Places–To-Visit.jpg" alt="Taiwan">
+                    <p>Taiwan<br>+220 Tours</p>
+                </div>
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=M9wfslrlJtU';">
+                    <img src="./assets/leb.jpg" alt="Lebanon">
+                    <p>Lebanon<br>+300 Tours</p>
+                </div>
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=JGX1GMJmMDI';">
+                    <img src="./assets/syra.jpg" alt="Syria">
+                    <p>Syria<br>+100 Tours</p>
+                </div>
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=-Ri2DOnbaoo';">
+                    <img src="./assets/jordan-CPF-FY24-29.webp" alt="jordan">
+                    <p>Jordan<br>+200 Tours</p>
+                </div>
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=b6GgaJWcbww';">
+                    <img src="./assets/saudiarabia.jpg" alt="saudi">
+                    <p>Saudi arabia<br>+150 Tours</p>
+                </div>
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=T70E-uQ9EtU';">
+                    <img src="./assets/canadaa.webp" alt="canada">
+                    <p>Canada<br>+120 Tours</p>
+                </div>
+                <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=sN630CRrrAE';">
+                    <img src="./assets/usaa.jpg" alt="USA">
+                    <p>USA<br>+220 Tours</p>
+                </div>
+            </div>
+            <button class="arrow right" onclick="moveRight()">&#9654;</button>
+        </div>
+        <img src="./assets/footer.svg" alt="" width="100%">
+        <div>
+            <button class="chatbot-toggler">
+                <span class="material-symbols-rounded">C-AI</span>
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="chatbot">
+                <header>
+                    <h2>Chatbot</h2>
+                    <span class="close-btn material-symbols-outlined">close</span>
+                </header>
+                <ul class="chatbox">
+                    <li class="chat incoming">
+                        <span class="material-symbols-outlined">AI</span>
+                        <p>Hi there 👋<br>How can I help you today?</p>
+                    </li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-    <div class="signin-signup-container" id="signin-container">
-        <img src="./assets/family f.jpg" alt="family flight photo" class="form-image">
-        <h2 class="form-title">Continue to your account</h2>
-        <span class="form-text">Get better deals, save your details for easy booking, and see all your trips in one place.</span>
-        <form id="signInForm">
-            <input type="text" id="signin-username" name="username" placeholder="username" required>
-            <input type="password" id="signin-password" name="password" placeholder="password" required>
-            <button type="submit" id="submit" class="form-btn">Submit</button>
-            <span id="signup-link" class="form-link">Don't have an account? <a href="#">Signup</a></span>
-            <span id="forget-link" class="form-link">Forgot Password? <a href="#">Reset Password</a></span>
-        </form>
-    </div>
-    <div class="signin-signup-container" id="signup-container">
-        <img src="./assets/family f.jpg" alt="family flight photo" class="form-image">
-        <form id="form">
-            <h2 class="form-title">Create a new account</h2>
-            <div class="input-control">
-                <input type="text" id="username" name="username" placeholder="Enter your Username" required>
-                <div class="error"></div>
-            </div>
-            <div class="input-control">
-                <input type="email" id="email" name="email" placeholder="e.g. your@email.com" required>
-                <div class="error"></div>
-            </div>
-            <div class="input-control">
-                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
-                <div class="error"></div>
-            </div>
-            <div class="input-control">
-                <input type="password" id="password2" name="confirmPassword" placeholder="Confirm your Password" required>
-                <div class="error"></div>
-            </div>
-            <button type="submit" id="register" class="form-btn">Register</button>
-            <span id="signin-link" class="form-link">Already have an account? <a href="#">Login</a></span>
-        </form>
-    </div>
-    <section class="background-image">
-        <div class="center-block">
-            <div class="search-box">
-                <div class="search-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <input type="text" placeholder="Search destinations">
+                <div class="chat-input">
+                    <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+                    <span id="send-btn" class="material-symbols-rounded">send</span>
                 </div>
-                <div class="search-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <input type="text" placeholder="April 05 - May 10">
-                </div>
-                <div class="search-item">
-                    <i class="fas fa-flag"></i>
-                    <input type="text" placeholder="All tour">
-                </div>
-                <button class="search-button">Search</button>
-            </div>
-        </div>
-    </section>
-    <section class="promotion-banner" id="promotionBanner">
-        <img src="./assets/Banner Promotion.svg" alt="Promotion Banner">
-        <button class="close-btn" onclick="closeBanner()">×</button>
-    </section>
-    <section class="Trending-svg">
-        <h2>Trending Destinations</h2>
-    </section>
-    <div class="carousel-container">
-        <button class="arrow left" onclick="moveLeft()">&#9664;</button>
-        <div class="carousel">
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=EEeu7-xJX_c';">
-                <img src="./assets/paris12.jpg" alt="Paris">
-                <p>Paris<br>+300 Tours</p>
-            </div>
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=rCx26B7u8Dc';">
-                <img src="./assets/denemark.jpg" alt="Denmark">
-                <p>Denmark<br>+100 Tours</p>
-            </div>
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=aLzKNCc2vwY';">
-                <img src="./assets/china.jpg" alt="China">
-                <p>China<br>+200 Tours</p>
-            </div>
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=vljvxeVXtGc';">
-                <img src="./assets/97.jpg" alt="Dubai">
-                <p>Dubai<br>+150 Tours</p>
-            </div>
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=b_9_3SAJvA8';">
-                <img src="./assets/maldive.jpg.webp" alt="Maldives">
-                <p>Maldives<br>+120 Tours</p>
-            </div>
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=dXcSF3qT-30';">
-                <img src="./assets/TAIWAN-Best-Places–To-Visit.jpg" alt="Taiwan">
-                <p>Taiwan<br>+220 Tours</p>
-            </div>
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=M9wfslrlJtU';">
-                <img src="./assets/leb.jpg" alt="Lebanon">
-                <p>Lebanon<br>+300 Tours</p>
-            </div>
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=JGX1GMJmMDI';">
-                <img src="./assets/syra.jpg" alt="Syria">
-                <p>Syria<br>+100 Tours</p>
-            </div>
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=-Ri2DOnbaoo';">
-                <img src="./assets/jordan-CPF-FY24-29.webp" alt="jordan">
-                <p>Jordan<br>+200 Tours</p>
-            </div>
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=b6GgaJWcbww';">
-                <img src="./assets/saudiarabia.jpg" alt="saudi">
-                <p>Saudi arabia<br>+150 Tours</p>
-            </div>
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=T70E-uQ9EtU';">
-                <img src="./assets/canadaa.webp" alt="canada">
-                <p>Canada<br>+120 Tours</p>
-            </div>
-            <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=sN630CRrrAE';">
-                <img src="./assets/usaa.jpg" alt="USA">
-                <p>USA<br>+220 Tours</p>
-            </div>
-        </div>
-        <button class="arrow right" onclick="moveRight()">&#9654;</button>
-    </div>
-    <section class="footer">
-        <img src="./assets/footer.svg" alt="Footer">
-    </section>
-    <div>
-        <button class="chatbot-toggler">
-            <span class="material-symbols-rounded">C-AI</span>
-            <span class="material-symbols-outlined">close</span>
-        </button>
-        <div class="chatbot">
-            <header>
-                <h2>Chatbot</h2>
-                <span class="close-btn material-symbols-outlined" onclick="cancel()">X</span>
-            </header>
-            <ul class="chatbox">
-                <li class="chat incoming">
-                    <span class="material-symbols-outlined"><i class="fas fa-robot"></i></span>
-                    <p>Hey! How can I assist you today?</p>
-                </li>
-            </ul>
-            <div class="chat-input">
-                <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
-                <button id="sendBTN"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
+
+    <script src="scripts/charbel.js"></script>
     <script src="scripts/login-signup.js"></script>
     <script src="scripts/ai-bot.js" defer></script>
     <script src="/scripts/trending.js"></script>
