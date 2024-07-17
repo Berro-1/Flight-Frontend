@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.0/build/spline-viewer.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Dark background for game environment */
+        }
+
+        .spline-container-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .spline-container {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        spline-viewer {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 10;
+        }
+    </style>
+    <title>Game Spline Viewer</title>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='home.html';">Back to Home</button>
+
+    <div class="spline-container-wrapper" id="splineWrapper">
+        <div class="spline-container">
+            <spline-viewer url="https://prod.spline.design/WmWtXkI49y0j4qVE/scene.splinecode"></spline-viewer>        </div>
+    </div>
+
+</body>
+</html>
