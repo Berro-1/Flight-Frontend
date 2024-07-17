@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.0/build/spline-viewer.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.0/build/spline-viewer.js"></script>
     <style>
         body, html {
             margin: 0;
@@ -56,16 +56,46 @@
             font-size: 16px;
             z-index: 10;
         }
+
+        .fullscreen-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 10;
+        }
     </style>
     <title>Game Spline Viewer</title>
 </head>
 <body>
     <button class="back-button" onclick="window.location.href='home.html';">Back to Home</button>
+    <button class="fullscreen-button" onclick="enterFullScreen();">Go Fullscreen</button>
 
     <div class="spline-container-wrapper" id="splineWrapper">
         <div class="spline-container">
-            <spline-viewer url="https://prod.spline.design/WmWtXkI49y0j4qVE/scene.splinecode"></spline-viewer>        </div>
+            <spline-viewer url="https://prod.spline.design/WmWtXkI49y0j4qVE/scene.splinecode"></spline-viewer>        
+        </div>
     </div>
 
+    <script>
+        function enterFullScreen() {
+            const splineWrapper = document.getElementById('splineWrapper');
+            if (splineWrapper.requestFullscreen) {
+                splineWrapper.requestFullscreen();
+            } else if (splineWrapper.mozRequestFullScreen) {
+                splineWrapper.mozRequestFullScreen();
+            } else if (splineWrapper.webkitRequestFullscreen) { 
+                splineWrapper.webkitRequestFullscreen();
+            } else if (splineWrapper.msRequestFullscreen) { 
+                splineWrapper.msRequestFullscreen();
+            }
+        }
+    </script>
 </body>
 </html>
