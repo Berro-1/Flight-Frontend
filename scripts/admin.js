@@ -34,6 +34,13 @@ function fillAirportsTable(data) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const airports = await fetchAirports(); // Fetch the airports
-    fillAirportsTable(airports); // Fill the table with the fetched data
+
+    let menuicn = document.querySelector(".menuicn");
+let nav = document.querySelector(".navcontainer");
+
+menuicn.addEventListener("click", () => {
+    nav.classList.toggle("navclose");
+})
+    const airports = await fetchAirports(); 
+    fillAirportsTable(airports); 
 });

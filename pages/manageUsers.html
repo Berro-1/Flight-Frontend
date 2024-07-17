@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="/styles/admin.css">
+</head>
+<body>
+    <header>
+        <div class="logosec">
+            <div class="logo">Manage Users</div>
+            <img src="/assets/menu.png" class="icn menuicn" id="menuicn" alt="menu-icon">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="navcontainer">
+            <div class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                        <a href="admin.html">
+                            <img src="/assets/dash.png" class="nav-img" alt="dashboard"></a>
+                        <h3>Dashboard</h3>
+                    </div>
+                    <div class="nav-option option6">
+                        <a href="manageUsers.html">
+                            <img src="/assets/manage0.png" class="nav-img" alt="manage-users"></a>
+                        <h3>Manage Users</h3>
+                    </div>
+                    <div class="nav-option logout">
+                        <a href="Logout.html">
+                            <img src="/assets/logout.png" class="nav-img" alt="logout"></a>
+                        <h3>Logout</h3>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main">
+            <div class="search-container">
+                <input type="text" id="searchUser" placeholder="Search User">
+                <button id="searchButton">Search</button>
+            </div>
+
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+             
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script src="/scripts/manageUsers.js"></script>
+</body>
+</html>
