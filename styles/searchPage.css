@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+  background-color: #f7f7f78a;
   margin: 20px;
 }
 h1 {
@@ -20,7 +20,7 @@ th, td {
   text-align: left;
 }
 th {
-  background-color: #009879;
+  background-color: rgb(241, 98, 98);
   color: #ffffff;
   text-transform: uppercase;
 }
@@ -31,7 +31,7 @@ tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
 tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid rgb(241, 98, 98);
 }
 tr:hover {
   background-color: #f1f1f1;
