@@ -1,17 +1,16 @@
-const jwtToken = localStorage.getItem("token");
+  const jwtToken = localStorage.getItem("token");
 
-  if (jwtToken) {
-    const decodedjwtToken = jwt_decode(jwtToken);
-    console.log(decodedjwtToken);
-    if (decodedjwtToken.role !== "admin") {
-      
-      window.location.href = "home.html";
+    if (jwtToken) {
+      const decodedjwtToken = jwt_decode(jwtToken);
+      console.log(decodedjwtToken);
+      if (decodedjwtToken.role !== "admin") {
+        
+        window.location.href = "/Flight-Frontend/pages/meme.html";
+      }
+    } else {
+      window.location.href = "/Flight-Frontend/pages/meme.html";
+
     }
-  } else {
-    alert("No jwtToken found. Redirecting to login.");
-    window.location.href = "/Flight-Frontend/pages/meme.html";
-
-  }
 // async function fetchAirports() {
 //     try {
 //         const response = await fetch('http://localhost/fullstack/Flight-Backend/api/airport/getAllAirports.php');
