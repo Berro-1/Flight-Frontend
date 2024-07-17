@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    let menuicn = document.querySelector(".menuicn");
+    let nav = document.querySelector(".navcontainer");
+    let main = document.querySelector(".main");
+
+    menuicn.addEventListener("click", () => {
+        nav.classList.toggle("navclose");
+        main.classList.toggle("main-close"); 
+    });
+
     await fetchHotels(); 
     document.getElementById('searchHotel').addEventListener('input', searchHotels);
 });

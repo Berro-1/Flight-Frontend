@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Taxis</title>
+    <link rel="stylesheet" href="/styles/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+
+    <script src="../scripts/auth.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="logosec">
+            <div class="logo">Manage Taxis</div>
+            <img src="/assets/menu.png" class="icn menuicn" id="menuicn" alt="menu-icon">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="navcontainer">
+            <div class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                        <a href="admin.html">
+                            <img src="/assets/dash.png" class="nav-img" alt="dashboard"></a>
+                        <h3>Dashboard</h3>
+                    </div>
+                    <div class="nav-option option2">
+                        <a href="manageAirports.html">
+                            <img src="/assets/manage.png" class="nav-img" alt="manage-airports"></a>
+                            <h3>Manage Airports</h3>
+                    </div>
+                    <div class="nav-option option3">
+                        <a href="manageFlight.html">
+                            <img src="/assets/manage2.png" class="nav-img" alt="manage-flights"> </a>
+                            <h3>Manage Flights</h3>
+                    </div>
+                    <div class="nav-option option4">
+                        <a href="manageHotels.html">
+                            <img src="/assets/admin icn.png" class="nav-img" alt="manage-hotels"> </a>
+                            <h3>Manage Hotels</h3>
+                    </div>
+                    <div class="nav-option option5">
+                        <a href="manageTaxis.html">
+                            <img src="/assets/userman.png" class="nav-img" alt="manage-taxis"> </a>
+                            <h3>Manage Taxis</h3>
+                    </div>
+                    <div class="nav-option option6">
+                        <a href="manageUsers.html">
+                            <img src="/assets/manage0.png" class="nav-img" alt="manage-users"></a>
+                            <h3>Manage Users</h3>
+                    </div>
+                    <div class="nav-option logout">
+                        <a href="Logout.html">
+                            <img src="/assets/logout.png" class="nav-img" alt="logout"></a>
+                            <h3>Logout</h3>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main">
+            <div class="search-container">
+                <input type="text" id="searchTaxi" placeholder="Search Taxi">
+                <button id="searchButton">Search</button>
+            </div>
+            <div class="taxi-form">
+                <input type="text" id="driverName" placeholder="Driver Name" required>
+                <input type="text" id="status" placeholder="Status" required>
+                <input type="text" id="fromLocation" placeholder="From Location" required>
+                <input type="text" id="toLocation" placeholder="To Location" required>
+                <button id="addTaxiButton">Add Taxi</button>
+            </div>
+
+            <table class="taxi-table">
+                <thead>
+                    <tr>
+                        <th>Driver Name</th>
+                        <th>Status</th>
+                        <th>From Location</th>
+                        <th>To Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="taxiTableBody">
+                   
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/scripts/manageTaxis.js"></script>
+</body>
+</html>

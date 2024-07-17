@@ -1,7 +1,7 @@
 let airports = []; 
 async function fetchFlights() {
     try {
-        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/flight/getAllFlight.php');
+        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/flight/getallFlight.php');
         if (!response.ok) {
             throw new Error('Failed to fetch flights');
         }
@@ -213,13 +213,13 @@ async function deleteAirport(button) {
 
 document.addEventListener('DOMContentLoaded', async () => {
 
-    const menuIcon = document.getElementById('menuicn');
-    const navContainer = document.querySelector('.navcontainer');
-    const mainContent = document.querySelector('.main');
+    let menuicn = document.querySelector(".menuicn");
+    let nav = document.querySelector(".navcontainer");
+    let main = document.querySelector(".main");
 
-    menuIcon.addEventListener('click', function() {
-        navContainer.classList.toggle('navclose');
-        mainContent.classList.toggle('main-close');
+    menuicn.addEventListener("click", () => {
+        nav.classList.toggle("navclose");
+        main.classList.toggle("main-close"); // Correctly toggles main's margin
     });
     const flights = await fetchFlights();
     fillTable(flights);
