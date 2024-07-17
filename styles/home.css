@@ -218,10 +218,72 @@ nav .login i {
     max-width: 1200px;
     height: auto;
 }
-.footer img {
-    width: 100%; /* Make the image take up the full width of the footer */
-    height: 400; /* Maintain the image aspect ratio */
-    display: block; /* Remove any extra space below the image */
+.footer {
+
+    width: 100%;
+    background-color: #92A5B8;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+.footer-social{
+    position: relative;
+    right: -600px;
+    top: -8px;
+}
+
+.footer-social a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: #ddd;
+}
+
+.footer-bottom {
+    position: relative;
+    bottom: -20px;
+    background-color: #92A5B8;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-logo {
+        margin-bottom: 0;
+    }
 }
 
 /* Chatbot CSS */
@@ -230,6 +292,7 @@ body.show-chatbot .chatbot-toggler {
 }
 
 .chatbot-toggler {
+    z-index: 2000000;
     position: fixed;
     right: 35px;
     bottom: 20px;
