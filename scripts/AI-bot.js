@@ -43,8 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
             })
         };
 
-        }
-
         // Fetch response from the API
         fetch(API_URL, requestOptions)
             .then(res => {
@@ -68,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
     }
+
     // Function to handle sending and receiving chat messages
     const handleChat = () => {
         userMessage = chatInput.value.trim(); // Get and trim the user message
