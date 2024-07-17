@@ -1,38 +1,276 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f7f7f7;
-  margin: 20px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
+header {
+  width: 100%;
+  background-color: #009879;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
 h1 {
   text-align: center;
   color: #333;
+  margin-top: 20px;
+  font-size: 24px;
 }
+
+.search-form {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.search-form form {
+  display: inline-block;
+}
+
+.search-form input, .search-form button {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.search-form button {
+  background-color: #009879;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #007a63;
+}
+
+.spinner {
+  display: none;
+  margin: 20px auto;
+  border: 6px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 6px solid #009879;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
-  font-size: 18px;
+  font-size: 16px;
   min-width: 600px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
+
 th, td {
   padding: 12px 15px;
   text-align: left;
 }
+
 th {
   background-color: #009879;
   color: #ffffff;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
+
 tr {
   border-bottom: 1px solid #dddddd;
 }
+
 tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
+
 tr:last-of-type {
   border-bottom: 2px solid #009879;
 }
+
 tr:hover {
-  background-color: #f1f1f1;
+  background-color: #e2f7f1;
+}
+
+.book-button {
+  background-color: #009879;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.book-button:hover {
+  background-color: #007a63;
+  transform: translateY(-2px);
+}
+
+.book-button:active {
+  transform: translateY(0);
+}
+
+thead {
+  background-color: #009879;
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #e1f5f2;
+}
+
+footer {
+  width: 100%;
+  background-color: #009879;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.footer-social a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 300;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 200px;
+  text-align: center;
+  border-radius: 10px;
+  animation: slideIn 0.5s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 10px 12px;
+  }
+
+  .book-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }
