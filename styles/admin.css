@@ -311,3 +311,96 @@
   cursor: pointer;
 }
 
+
+.hotel-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.hotel-table th, .hotel-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.hotel-table th {
+  background-color: #f4f4f4;
+  color: #4b49ac;
+}
+
+.hotel-table tr:hover {
+  background-color: #f1f1f1; 
+}
+
+.hotel-table td {
+  color: #333;
+}
+
+.update-btn, .delete-btn, .save-btn {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.update-btn {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.save-btn {
+  background-color: #28a745; /* Green for save */
+  color: white;
+}
+
+/* Button hover effects */
+.update-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.delete-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+.save-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Search and form styles */
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#searchHotel, #hotelName, #hotelLocation, #availableRooms {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  flex: 1;
+  margin-right: 10px;
+}
+
+#addHotelButton, #searchButton {
+  padding: 10px 20px;
+  background-color: #4b49ac;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+#addHotelButton:hover, #searchButton:hover {
+  background-color: #218838; /* Use a consistent color for hover */
+}
