@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (isValid) {
             try {
                 console.log('Attempting to log in with:', { email, password });
-                const response = await fetch('http://localhost/flight/Flight-Backend/api/user/login.php', {
+                const response = await fetch('http://localhost/fullstack/Flight-Backend/api/user/login.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
