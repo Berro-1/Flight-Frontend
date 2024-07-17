@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/styles/admin.css">
+</head>
+<body>
+    <header>
+        <div class="logosec">
+            <div class="logo">Admin Dashboard</div>
+            <img src="/assets/menu.png" class="icn menuicn" id="menuicn" alt="menu-icon">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="navcontainer">
+            <div class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                        <img src="/assets/dash.png" class="nav-img" alt="dashboard">
+                        <h3>Dashboard</h3>
+                    </div>
+                    <div class="nav-option option2">
+                        <a href="manageAirports.html"><img src="/assets/manage.png" class="nav-img" alt="manage-airports"></a>
+                        <h3 >Manage Airports</h3>
+                    </div>
+                    <div class="nav-option option3">
+                        <a href="manageFlights.html"><img src="/assets/manage2.png" class="nav-img" alt="manage-flights"></a>
+                        <h3>Manage Flights</h3>
+                    </div>
+                    <div class="nav-option option4">
+                        <a href="manageHotels.html"><img src="/assets/admin icn.png" class="nav-img" alt="manage-hotels"></a>
+                        <h3>Manage Hotels</h3>
+                    </div>
+                    <div class="nav-option option5">
+                        <a href="manageTaxis.html"><img src="/assets/userman.png" class="nav-img" alt="manage-taxis"></a>
+                        <h3>Manage Taxis</h3>
+                    </div>
+                    <div class="nav-option option6">
+                        <a href="manageUsers.html"><img src="/assets/manage0.png" class="nav-img" alt="manage-users"></a>
+                        <h3>Manage Users</h3>
+                    </div>
+                    <div class="nav-option logout">
+                        <a href="Logout.html"><img src="/assets/logout.png" class="nav-img" alt="logout"></a>
+                        <h3>Logout</h3>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main">
+            <div class="report-container">
+                <div class="report-header">
+                    <input type="text" style="width: 50%; border: 0cap;" placeholder="search for a flight , type thr flight number">
+                    <button class="view">View All</button>
+                </div>
+            <div class="report-container">
+                <div class="report-header">
+                    <h1 class="recent-Bookings">Recent Bookings</h1>
+                    <button class="view">View All</button>
+                </div>
+                
+
+
+                <table class="report-table">
+                    <thead>
+                        <tr>
+                            <th>Flight Number</th>
+                            <th>Departure Airport NAme</th>
+                            <th>Destination Airport Name</th>
+                            <th>Departure date & time</th>
+                            <th>Arrival DAte & time</th>
+                            <th>Flight Number</th>
+                            <th>Action</th>
+                            
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+
+                    <div id="editModal" style="display: none;">
+                        <div>
+                            <h2>Edit Flight</h2>
+                            <label for="flightNumber">Flight Number:</label>
+                            <input type="text" id="flightNumber">
+                            <label for="departureAirport">Departure Airport:</label>
+                            <input type="text" id="departureAirport">
+                            <label for="arrivalAirport">Arrival Airport:</label>
+                            <input type="text" id="arrivalAirport">
+                            <label for="departureDatetime">Departure Datetime:</label>
+                            <input type="datetime-local" id="departureDatetime">
+                            <label for="arrivalDatetime">Arrival Datetime:</label>
+                            <input type="datetime-local" id="arrivalDatetime">
+                            <label for="availableSeats">Available Seats:</label>
+                            <input type="number" id="availableSeats">
+                            <button id="saveBtn">Save</button>
+                            <button id="cancelBtn">Cancel</button>
+                        </div>
+                    </div>
+                </table>
+            </div>
+        </main>
+    </div>
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"
+    integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    
+    <script src="/scripts/manageflight.js"></script>
+
+
+
+</body>
+</html>
