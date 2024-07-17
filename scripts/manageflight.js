@@ -1,7 +1,7 @@
 let airports = []; 
 async function fetchFlights() {
     try {
-        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/flight/getAllFlight.php');
+        const response = await fetch('http://localhost/fullstack/Flight-Backend/api/flight/getallFlight.php');
         if (!response.ok) {
             throw new Error('Failed to fetch flights');
         }
