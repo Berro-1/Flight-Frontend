@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -61,18 +60,16 @@ nav .login {
     color: red;
     display: flex;
     align-items: center;
-    position: relative; /* Enable relative positioning */
-    /* Adjust the value to move left */
-     top: -12px;
+    position: relative;
+    top: -12px;
 }
 
 nav .login i {
     margin-right: 5px;
-  
 }
 
 .background-image {
-    background-image: url('/assets/Group\ 15.png');
+    background-image: url('/assets/Group 15.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -155,26 +152,75 @@ nav .login i {
     position : relative;
     /* left :250px; */
     margin-top: 20px;
-
+}
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     margin-top: 50px;
+     
 }
 
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 80%;
+    gap: 10px;
+}
 
-.Trending-below-svg,
-.savedes,
-.savedes-below,
-.footer {
+.carousel-item {
+    flex: 0 0 auto;
+    width: 200px;
     text-align: center;
-    margin-top: 20px;
+    cursor: pointer;
+}
+
+.carousel-item img {
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+}
+
+.carousel-item p {
+    margin-top: 10px;
+}
+
+.arrow {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.arrow.left {
+    margin-right: 20px;
+}
+
+.arrow.right {
+    margin-left: 20px;
+}
+.footer {
+    margin-top: 30px;
+    width: 100%; /* Ensure the footer spans the entire width */
+    text-align: center; /* Center the content within the footer */
+    margin: 0;
+    padding: 0;
 }
 
 .Trending-svg img,
 .Trending-below-svg img,
 .savedes img,
-.savedes-below img,
-.footer img {
+.savedes-below img {
     width: 100%;
     max-width: 1200px;
     height: auto;
+}
+.footer img {
+    width: 100%; /* Make the image take up the full width of the footer */
+    height: 400; /* Maintain the image aspect ratio */
+    display: block; /* Remove any extra space below the image */
 }
 
 /* Chatbot CSS */
@@ -379,6 +425,8 @@ header h2 {
     visibility: visible;
 }
 
+
+
 @media (max-width: 490px) {
     .chatbot-toggler {
         right: 20px;
@@ -474,7 +522,6 @@ header h2 {
 }
 
 /* Sign-in/Sign-up Styles */
-
 .signin-signup-container {
     display: none; /* Hide by default, show with JS */
     flex-direction: column;
@@ -508,7 +555,6 @@ header h2 {
     font-size: 1em;
     margin-bottom: 20px;
 }
-
 
 form {
     display: flex;
@@ -590,6 +636,7 @@ input[type="email"] {
     font-size: 9px;
     height: 13px;
 }
+
 
 .close {
     color: #aaa;
