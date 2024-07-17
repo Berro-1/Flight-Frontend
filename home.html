@@ -6,32 +6,33 @@
     <title>Chris Airlines</title>
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <style>
     .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 300; /* Sit on top */
+        display: none;
+        position: fixed; 
+        z-index: 300; 
         left: 0;
         top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
-        animation: fadeIn 0.3s; /* Fade in animation */
+        width: 100%; 
+        height: 100%;
+        overflow: auto; 
+        background-color: rgba(0, 0, 0, 0.5); 
+        animation: fadeIn 0.3s;
         align-items: center;
     }
 
     .modal-content {
         background-color: #fff;
-        margin: 15% auto; /* 15% from the top and centered */
+        margin: 15% auto; 
         padding: 20px;
         border: 1px solid #888;
-        width: 80%; /* Could be more or less, depending on screen size */
+        width: 80%; 
         max-width: 200px;
         text-align: center;
         border-radius: 10px;
-        animation: slideIn 0.5s; /* Slide in animation */
+        animation: slideIn 0.5s;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         display: flex;
         align-items: center;
@@ -106,21 +107,22 @@
                 <div class="search-box">
                     <div class="search-item">
                         <i class="fas fa-plane-departure"></i>
-                        <select id="plane-from">Search Departure
+                        <select id="plane-from">
                             <option value="">Select Departure</option>
                         </select>
                     </div>
                     <div class="search-item">
                         <i class="fas fa-plane-arrival"></i>
-                        <select id="plane-to">Search Destinations
+                        <select id="plane-to">
                             <option value="">Select Arrival</option>
                         </select>
                     </div>
-                    
                     <button class="search-button">Search</button>
                 </div>
             </div>
         </section>
+        
+
 
         <div class="signin-signup-container" id="signin-container">
             <img src="./assets/family f.jpg" alt="family flight photo" class="form-image">
@@ -234,7 +236,6 @@
             </div>
             <button class="arrow right" onclick="moveRight()">&#9654;</button>
         </div>
-        <img src="./assets/footer.svg" alt="" width="100%">
         <div>
             <button class="chatbot-toggler">
                 <span class="material-symbols-rounded">C-AI</span>
@@ -263,6 +264,7 @@
     <script src="scripts/login-signup.js"></script>
     <script src="scripts/ai-bot.js" defer></script>
     <script src="/scripts/trending.js"></script>
+    <script src="./scripts/homepage.js"></script>
 
 </body>
 </html>

@@ -33,7 +33,7 @@ taxitBtn.addEventListener('click',()=>{
 
 const getFlights = async() => {
     try {
-        const { data } = await axios.get('http://localhost/Flight-Backend/api/flight/getallFlight.php')
+        const { data } = await axios.get('http://localhost/fullstack/Flight-Backend/api/flight/getallFlight.php')
         
         
         data.forEach(flight => {
@@ -62,7 +62,7 @@ getFlights()
 
 const getHotels = async() => {
     try {
-        const { data } = await axios.post('http://localhost/Flight-Backend/api/hotel/getHotels.php')
+        const { data } = await axios.post('http://localhost/fullstack/Flight-Backend/api/hotel/getHotels.php')
         
         console.log({data})
         data.forEach(hotel => {
@@ -88,7 +88,7 @@ getHotels()
 
 const getTaxis = async() => {
     try {
-        const { data } = await axios.get('http://localhost/Flight-Backend/api/taxi/getAllTaxis.php')
+        const { data } = await axios.get('http://localhost/fullstack/Flight-Backend/api/taxi/getAllTaxis.php')
         
         console.log({data})
 

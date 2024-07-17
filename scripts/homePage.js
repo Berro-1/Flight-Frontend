@@ -1,46 +1,50 @@
-const planeFrom = document.getElementById('plane-from')
-const planeTo = document.getElementById('plane-to')
-const search = document.getElementsByClassName('search-button')[0]
-const tableBody = document.querySelector('#flightTable tbody')
+document.addEventListener("DOMContentLoaded", () => {
+    const planeFrom = document.getElementById('plane-from');
+    const planeTo = document.getElementById('plane-to');
+    const searchButton = document.querySelector('.search-button');
 
-const getFlights = async() => {
-    try {
-        const { data } = await axios.get('http://localhost/Flight-Backend/api/flight/getallFlight.php');
-        
-        
-        data.forEach(flight => {
-            const from = document.createElement('option');
-            const to = document.createElement('option');
+    const getAirports = async () => {
+        try {
+            const { data } = await axios.get('http://localhost/fullstack/Flight-Backend/api/airport/getAirports.php');
+            console.log(data);
             
-            from.id = flight.departure_airport_id;
-            to.id = flight.destination_airport_id;
-            from.innerText= flight.departure_airport;
-            to.innerText = flight.arrival_airport;
+            data.forEach(airport => {
+                const fromOption = document.createElement('option');
+                const toOption = document.createElement('option');
+                
+                fromOption.value = airport.Airport_id;
+                toOption.value = airport.Airport_id;
+                fromOption.innerText = airport.AirportName;
+                toOption.innerText = airport.AirportName;
 
-            planeFrom.appendChild(from);
-            planeTo.appendChild(to);
-        });
-    } catch (error) {
-        console.error('Error fetching hotels:', error);
-    }
-}
+                planeFrom.appendChild(fromOption);
+                planeTo.appendChild(toOption);
+            });
+        } catch (error) {
+            console.error('Error fetching airports:', error);
+        }
+    };
 
-getFlights();
-let fromId
-let toId
-planeFrom.addEventListener('change', () => {
-    fromId = planeFrom.value
-    console.log(fromId)
+    getAirports();
+
+    let fromId;
+    let toId;
+
+    planeFrom.addEventListener('change', () => {
+        fromId = planeFrom.value;
+        console.log(fromId);
+    });
+
+    planeTo.addEventListener('change', () => {
+        toId = planeTo.value;
+        console.log(toId);
+    });
+
+    searchButton.addEventListener('click', () => {
+        if (fromId && toId) {
+            window.location.href = `search-page.html?fromId=${fromId}&toId=${toId}`;
+        } else {
+            alert('Please select both departure and arrival locations.');
+        }
+    });
 });
-planeTo.addEventListener('change', ()=>{
-    toId = planeTo.value
-    console.log(toId)
-})
-
-
-search.addEventListener('click', ()=>{
-    window.location.href = 'search-page.html?fromId='+ fromId +'&toId='+toId;
-
-    
-    
-})
