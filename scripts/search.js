@@ -1,10 +1,25 @@
 const tableBody = document.querySelector('#flightTable tbody')
 
-
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        fromId: params.get('fromId'),
+        toId: params.get('toId')
+    };
+}
+console.log(window.location.search)
+const params = getQueryParams()
+console.log(params)
+console.log(params.fromId)
+console.log(params.toId)
 window.onload = ()=>{
+
+
     const getallFlight = async ()=>{
         try {
-            const { data } = await axios.post('http://localhost/Flight-Backend/api/flight/getallFlight.php');
+            const params = getQueryParams();
+            console.log(params)
+            const { data } = await axios.get(`http://localhost/Flight-Backend/api/flight/getFlightByDepartureDestinatin.php?departure=${params.fromId}&destination=${params.toId}`);
             
             
             data.forEach(flight => {
@@ -15,11 +30,11 @@ window.onload = ()=>{
                 row.append(fligh_id)
     
                 const flight_dep = document.createElement('td')
-                flight_dep.innerText = flight.departure_airport
+                flight_dep.innerText = params.fromId
                 row.append(flight_dep)
     
                 const flight_des = document.createElement('td')
-                flight_des.innerText = flight.arrival_airport
+                flight_des.innerText = params.toId
                 row.append(flight_des)
     
                 const flight_dep_time = document.createElement('td')

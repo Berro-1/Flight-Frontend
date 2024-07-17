@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chris Airlines</title>
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <style>
@@ -105,17 +105,18 @@
             <div class="center-block">
                 <div class="search-box">
                     <div class="search-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <input type="text" placeholder="Search destinations">
+                        <i class="fas fa-plane-departure"></i>
+                        <select id="plane-from">Search Departure
+                            <option value="">Select Departure</option>
+                        </select>
                     </div>
                     <div class="search-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <input type="text" placeholder="April 05 - May 10">
+                        <i class="fas fa-plane-arrival"></i>
+                        <select id="plane-to">Search Destinations
+                            <option value="">Select Arrival</option>
+                        </select>
                     </div>
-                    <div class="search-item">
-                        <i class="fas fa-flag"></i>
-                        <input type="text" placeholder="All tour">
-                    </div>
+                    
                     <button class="search-button">Search</button>
                 </div>
             </div>
@@ -218,7 +219,7 @@
                 <div class="search-item">
                     <i class="fas fa-plane-arrival"></i>
                     <select id="plane-to">Search Destinations
-                        <option value="">Select Departure</option>
+                        <option value="">Select Arrival</option>
                     </select>
                 <div class="carousel-item" onclick="location.href='https://www.youtube.com/watch?v=T70E-uQ9EtU';">
                     <img src="./assets/canadaa.webp" alt="canada">
