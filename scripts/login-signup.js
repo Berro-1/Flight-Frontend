@@ -124,7 +124,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (isFormValid) {
-            alert("Registration successful!");
+            Toastify({
+                text: "Registration successful!",
+                duration: 3000, // Toast will auto-close after 3 seconds
+                close: true,
+                gravity: "top",
+                position: "right",
+                className: "custom-toast custom-toast-success",
+                stopOnFocus: true,
+            }).showToast();
+            // Hide the signup modal and overlay
+            signupContainer.style.display = 'none';
+            overlay.style.display = 'none';
             signUpForm.submit();
         }
     };
@@ -191,26 +202,69 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (response.ok) {
                     const data = await response.json();
                     if (data.success) {
-                        alert('Login successful!');
+                        Toastify({
+                            text: "Login successful!",
+                            duration: 3000, // Toast will auto-close after 3 seconds
+                            close: true,
+                            gravity: "top",
+                            position: "right",
+                            className: "custom-toast custom-toast-success",
+                            stopOnFocus: true,
+                        }).showToast();
                         // Save the JWT token in local storage
                         localStorage.setItem('token', data.jwt);
+                        // Hide the login modal and overlay
+                        signinContainer.style.display = 'none';
+                        overlay.style.display = 'none';
                         // Hide the login button
                         document.querySelector('.login').style.display = 'none';
                         // Show the logout button
                         showLogoutButton();
                     } else {
-                        alert(`Login failed: ${data.message}`);
+                        Toastify({
+                            text: `Login failed: ${data.message}`,
+                            duration: 3000, // Toast will auto-close after 3 seconds
+                            close: true,
+                            gravity: "top",
+                            position: "right",
+                            className: "custom-toast custom-toast-error",
+                            stopOnFocus: true,
+                        }).showToast();
                     }
                 } else {
                     const errorData = await response.json();
-                    alert(`Login failed: ${errorData.message}`);
+                    Toastify({
+                        text: `Login failed: ${errorData.message}`,
+                        duration: 3000, // Toast will auto-close after 3 seconds
+                        close: true,
+                        gravity: "top",
+                        position: "right",
+                        className: "custom-toast custom-toast-error",
+                        stopOnFocus: true,
+                    }).showToast();
                 }
             } catch (error) {
                 console.error('Fetch error:', error);
-                alert(`Login failed: ${error.message}`);
+                Toastify({
+                    text: `Login failed: ${error.message}`,
+                    duration: 3000, // Toast will auto-close after 3 seconds
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    className: "custom-toast custom-toast-error",
+                    stopOnFocus: true,
+                }).showToast();
             }
         } else {
-            alert('Please fill in both fields.');
+            Toastify({
+                text: "Please fill in both fields.",
+                duration: 3000, // Toast will auto-close after 3 seconds
+                close: true,
+                gravity: "top",
+                position: "right",
+                className: "custom-toast custom-toast-error",
+                stopOnFocus: true,
+            }).showToast();
         }
     };
 
@@ -229,7 +283,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const handleLogout = () => {
         localStorage.removeItem('token');
-        alert('Logged out successfully!');
+        Toastify({
+            text: "Logged out successfully!",
+            duration: 3000, // Toast will auto-close after 3 seconds
+            close: true,
+            gravity: "top",
+            position: "right",
+            className: "custom-toast custom-toast-success",
+            stopOnFocus: true,
+        }).showToast();
         document.querySelector('.login').style.display = 'inline-block';
         document.querySelector('.logout').parentElement.remove();
     };

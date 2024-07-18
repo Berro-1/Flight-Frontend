@@ -728,3 +728,19 @@ select {
     text-decoration: none;
     cursor: pointer;
 }
+.custom-toast {
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 16px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.custom-toast-success {
+    background: linear-gradient(to right, #28a745, #218838);
+}
+
+.custom-toast-error {
+    background: linear-gradient(to right, #dc3545, #c82333);
+}
