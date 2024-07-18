@@ -8,11 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
             toId: params.get('toId')
         };
     }
+
     console.log(window.location.search);
     const params = getQueryParams();
     console.log(params);
     console.log(params.fromId);
     console.log(params.toId);
+
+    const getUserFromToken = () => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            throw new Error('No token found in local storage');
+        }
+        const decodedToken = jwt_decode(token);
+        return decodedToken.sub;
+    };
 
     window.onload = () => {
         const getallFlight = async () => {
@@ -25,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 data.forEach(flight => {
                     const row = document.createElement('tr');
         
-                    const flight_id = document.createElement('td');
-                    flight_id.innerText = flight.flight_number;
-                    row.append(flight_id);
+                    const flight_id_td = document.createElement('td');
+                    flight_id_td.innerText = flight.flight_number;
+                    row.append(flight_id_td);
         
                     const flight_dep = document.createElement('td');
                     flight_dep.innerText = params.fromId;
@@ -53,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const button = document.createElement('button');
                     button.innerText = 'Book';
                     button.classList.add('book-button');
-                    button.addEventListener('click', () => bookFlight(flight.flight_number));
+                    button.addEventListener('click', () => bookFlight(flight.flight_id));
                     book_button.append(button);
                     row.append(book_button);
         
@@ -65,14 +75,17 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('loadingSpinner').classList.add('hidden');
         };
 
-        const bookFlight = async (flightNumber) => {
+        const bookFlight = async (flightId) => {
             try {
-                const response = await axios.post('http://localhost/fullstack/Flight-Backend/api/flight/bookFlight.php', {
-                    flight_number: flightNumber
+                const user = getUserFromToken();
+                const response = await axios.post('http://localhost/fullstack/Flight-Backend/api/flightBook/createBooking.php', {
+                    user_id: user,  // Assuming user object has an id property
+                    flight_id: flightId,
+                    booking_date: new Date().toISOString()
                 });
-                if (response.data.success) {
+                if (response.data) {
                     Toastify({
-                        text: `Flight ${flightNumber} booked successfully!`,
+                        text: `Flight ${flightId} booked successfully!`,
                         duration: 3000,
                         close: true,
                         gravity: "top",
