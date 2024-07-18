@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
                 const user = getUserFromToken();
                 const response = await axios.post('http://localhost/fullstack/Flight-Backend/api/flightBook/createBooking.php', {
-                    user_id: user,  // Assuming user object has an id property
+                    user_id: user,
                     flight_id: flightId,
                     booking_date: new Date().toISOString()
                 });
